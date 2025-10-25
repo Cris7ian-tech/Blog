@@ -1,3 +1,23 @@
 @import "tailwindcss";
 
 
+@theme {
+  
+--color-sky-blue-blog-50: #ecfcff;
+--color-sky-blue-blog-100: #cef7ff;
+--color-sky-blue-blog-200: #a4ecfd;
+--color-sky-blue-blog-300: #61dbfb;
+--color-sky-blue-blog-400: #1fc2f1;
+--color-sky-blue-blog-500: #03a5d7;
+--color-sky-blue-blog-600: #0682b4;
+--color-sky-blue-blog-700: #0c6992;
+--color-sky-blue-blog-800: #145676;
+--color-sky-blue-blog-900: #154864;
+--color-sky-blue-blog-950: #072d45;
+
+
+}
+
+body {
+  background-color: #262626;
+}

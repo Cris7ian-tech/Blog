@@ -1,5 +1,7 @@
-import Navbar from "./components/Navbar";
+
 import MainLayout from "./pages/MainLayout";
+import Footer from "./components/Footer";
+import Header from "./components/Header";
 import "./index.css";
 
 function App() {
@@ -7,20 +9,17 @@ function App() {
     <>
     <div className="App">
       <header>
-        <Navbar />
+        <Header />
       </header>
 
       <main>
         <MainLayout />
       </main>
 
-      <footer className="bg-gray-900 text-gray-300 text-center py-4">
-        <p>
-          © {new Date().getFullYear()} Mi Blog — Creado con{" "}
-          <span className="text-blue-300">React</span> y{" "}
-          <span className="text-sky-400">Tailwind CSS</span>
-        </p>
+      <footer>
+        <Footer />
       </footer>
+
     </div>
     </>
   );

@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className="bg-black text-white shadow-md">
+    <nav className="bg-black text-white shadow-md fixed w-full top-0 left-0 z-50">
       <div className="max-w-6xl mx-auto px-4">
         <div className="flex justify-between items-center h-16">
           {/* Logo o nombre */}
@@ -53,22 +53,22 @@ const Navbar: React.FC = () => {
           <div className="hidden md:flex space-x-8">
             <a
               href="#blog"
-              className="hover:text-blue-300 transition-colors duration-200"
-            >
+              className="hover:text-blue-300 transition-colors duration-200">
               Blog
             </a>
+
             <a
               href="#doc"
-              className="hover:text-blue-300 transition-colors duration-200"
-            >
+              className="hover:text-blue-300 transition-colors duration-200">
               Doc
             </a>
+
             <a
               href="#contacto"
-              className="hover:text-blue-300 transition-colors duration-200"
-            >
+              className="hover:text-blue-300 transition-colors duration-200">
               Contacto
             </a>
+
           </div>
         </div>
       </div>
@@ -93,10 +93,10 @@ const Navbar: React.FC = () => {
           <a
             href="#contacto"
             className="block px-4 py-2 hover:bg-gray-700 transition-colors duration-200"
-            onClick={() => setIsOpen(false)}
-          >
+            onClick={() => setIsOpen(false)}>
             Contacto
           </a>
+          
         </div>
       )}
     </nav>

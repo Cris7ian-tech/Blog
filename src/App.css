@@ -1,17 +1,2 @@
 @import "tailwindcss";
 
-@theme {
---color-sky-blue-50: #ecfcff;
---color-sky-blue-100: #cef7ff;
---color-sky-blue-200: #a4ecfd;
---color-sky-blue-300: #61dbfb;
---color-sky-blue-400: #1fc2f1;
---color-sky-blue-500: #03a5d7;
---color-sky-blue-600: #0682b4;
---color-sky-blue-700: #0c6992;
---color-sky-blue-800: #145676;
---color-sky-blue-900: #154864;
---color-sky-blue-950: #072d45;
-
-
-}

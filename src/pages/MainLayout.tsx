@@ -1,10 +1,8 @@
-import React from 'react';
-
 
 const MainLayout: React.FC = () => {
   return (
     <>
-    <main className="min-h-screen bg-gradient-to-b from-black via-black to-[#0c6992] text-white p-8 grid grid-cols-3 gap-6">
+    <main className="min-h-screen bg-linear-to-b from-black via-black to-[#0c6992] text-white p-8 grid grid-cols-3 gap-6">
   {/* Imagen */}
   <section className="col-span-1 bg-white/10 rounded-xl overflow-hidden shadow-lg flex items-center justify-center">
     <img
@@ -15,7 +13,7 @@ const MainLayout: React.FC = () => {
   </section>
 
   {/* Presentación */}
-  <section className="col-span-2 bg-gradient-to-b from-neutral-800 via-neutral-900 to-black rounded-xl shadow-lg flex flex-col justify-center p-10">
+  <section className="col-span-2 bg-linear-to-b from-neutral-800 via-neutral-900 to-black rounded-xl shadow-lg flex flex-col justify-center p-10">
     <h1 className="text-4xl font-bold mb-4">¡Hola! Soy Cristian</h1>
     <p className="text-lg text-gray-300 leading-relaxed">
       Desarrollador web y entusiasta de React. En este blog comparto lo que aprendo sobre hooks, componentes y desarrollo frontend.
