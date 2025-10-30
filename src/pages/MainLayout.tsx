@@ -2,41 +2,61 @@
 const MainLayout: React.FC = () => {
   return (
     <>
-    <main className="min-h-screen bg-linear-to-b from-black via-black to-[#0c6992] text-white p-8 grid grid-cols-3 gap-6">
-  {/* Imagen */}
-  <section className="col-span-1 bg-white/10 rounded-xl overflow-hidden shadow-lg flex items-center justify-center">
-    <img
-      src="/src/assets/Perfil-blog.jpg"
-      alt="Cristian Lucero"
-      className="w-full h-full object-cover"
-    />
-  </section>
+    <main className="min-h-screen p-4 sm:p6 md:p-12 lg:p-20">
+      {/*IMAGEN*/ }
+      <div className="grid grid-cols-1 md:grid-cols-5 gap-4">
+        <div className="bg-gray-600 md:col-span-2 rounded-lg w-full h-full object-cover">
+          <img src="/src/assets/react.svg" 
+          alt="react logo"
+          className="object-cover rounded-lg"
+          />
+        </div>
 
-  {/* Presentación */}
-  <section className="col-span-2 bg-linear-to-b from-neutral-800 via-neutral-900 to-black rounded-xl shadow-lg flex flex-col justify-center p-10">
-    <h1 className="text-4xl font-bold mb-4">¡Hola! Soy Cristian</h1>
-    <p className="text-lg text-gray-300 leading-relaxed">
-      Desarrollador web y entusiasta de React. En este blog comparto lo que aprendo sobre hooks, componentes y desarrollo frontend.
-    </p>
-  </section>
+          {/*TEXTOS*/ }
+        <div className="content-end bg-cyan-600 md:col-span-3 rounded-lg px-4 py-6">
+          <h2 className="text-gray-300 text-2xl font-bold py-4">Hola! soy Cristian✌️</h2>
+          <p className="text-gray-300 mb-4 leading-5" > Soy un <strong>desarrollador web en proceso</strong>y éste es mi blog, donde comparto mis proyectos y experiencias en la programación. 
+          </p>
 
-  {/* Artículos */}
-  <section className="col-span-3 grid grid-cols-3 gap-6">
-    <article className="bg-white/10 rounded-xl p-6 shadow-md hover:bg-white/20 transition">
-      <h2 className="text-xl font-semibold mb-2">useState</h2>
-      <p className="text-gray-300">Permite manejar el estado local de un componente funcional.</p>
-    </article>
-    <article className="bg-white/10 rounded-xl p-6 shadow-md hover:bg-white/20 transition">
-      <h2 className="text-xl font-semibold mb-2">useEffect</h2>
-      <p className="text-gray-300">Ejecuta efectos secundarios, como llamadas a APIs o listeners.</p>
-    </article>
-    <article className="bg-white/10 rounded-xl p-6 shadow-md hover:bg-white/20 transition">
-      <h2 className="text-xl font-semibold mb-2">useContext</h2>
-      <p className="text-gray-300">Facilita compartir datos entre componentes sin pasar props.</p>
-    </article>
-  </section>
-</main>
+          <p className="text-gray-300 mb-4 leading-5">  
+            La primera publicación sará sobre <strong>React</strong>  y sus <strong>Hooks</strong> , una herramienta clave y poderosa para crear aplicaciones modernas y dinámicas.
+          </p>
+          <p className="text-gray-300 mb-4 leading-5"> 
+            Si estás empezando con React o queres mejorar tu forma de trabajar con componentes funcionales, <strong>este espacio es para vos.</strong>            
+          </p>
+        </div>
+      </div>
 
+      {/*ARTICULOS*/ }
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-4">
+
+      {/*Articulo 1*/}
+      <article className="bg-neutral-900 shadow min-h-[200px] rounded-lg p-4 border border-stone-700">
+        <div>
+          <p className="text-gray-300 mb-4 leading-5"><strong>UseState y UseEffect</strong> El punto de partida</p>
+          <p className="text-gray-300 mb-4 leading-5">Aprende cómo manejar estados y efectos secundarios en React con los Hooks más utilizados.
+            Ideal para quienes recén comienzan o quieren reforzar conceptos claves.
+          </p>
+        </div>
+      </article>
+
+      {/*Articulo 2*/}
+      <article className="bg-neutral-900 shadow min-h-[200px] rounded-lg p-4 border border-stone-700">
+        <div>
+          <p className="text-gray-300 mb-4 leading-5"><strong>Nombre Hoock</strong></p>
+          <p className="text-gray-300 mb-4 leading-5">descripcion hoock 2</p>
+        </div>
+      </article>
+
+      {/*Articulo 3*/}
+      <article className="bg-neutral-900 shadow min-h-[200px] rounded-lg p-4 border border-stone-700">
+        <div>
+          <p className="text-gray-300 mb-4 leading-5"><strong>Nombre Hoock</strong></p>
+          <p className="text-gray-300 mb-4 leading-5">descripcion hoock 3</p>
+        </div>
+      </article>
+      </div>
+    </main>
     </>
   );
 }

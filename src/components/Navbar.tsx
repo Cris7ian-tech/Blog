@@ -4,7 +4,7 @@ const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className="bg-black text-white shadow-md fixed w-full top-0 left-0 z-50">
+    <nav className="text-white shadow-md fixed w-full top-0 left-0 z-50">
       <div className="max-w-6xl mx-auto px-4">
         <div className="flex justify-between items-center h-16">
           {/* Logo o nombre */}
