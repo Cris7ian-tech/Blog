@@ -1,8 +1,13 @@
+import { useState } from "react";
+
 import hooksData from "../../data/HooksData.json";
 import ButtonLeerMas from "./ButtonLeerMas";
 
 
 function CardArticle({ titulo, subtitulo, descripcion }) {
+
+  const [expandida, setExpandida] = useState(false);
+
   return (
     <>
 
@@ -15,6 +20,16 @@ function CardArticle({ titulo, subtitulo, descripcion }) {
           </div>
           <ButtonLeerMas />
         </article>
+
+        <button 
+        onClick={() => setExpandida(!expandida)}
+        className="mt-4 text-sm font-bold text-cyan-400 hover:text-cyan-300 transition-colors">
+
+    {/*TERNARIO VA PALI?*/}
+    { expandida? "Leer más ▲" : "Leer menos ▼" }
+
+        </button>
+
 
     </>
   )
