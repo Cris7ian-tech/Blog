@@ -1,5 +1,8 @@
+import hooksData from "../data/HooksData.json";
+import CardArticle from "../components/ui/CardArticle.tsx";
+import ButtonLeerMas from "../components/ui/ButtonLeerMas.tsx";
 
-const MainLayout: React.FC = () => {
+const MainLayout = () => {
   return (
     <>
     <main className="min-h-screen p-4 sm:p6 md:p-12 lg:p-20">
@@ -31,31 +34,43 @@ const MainLayout: React.FC = () => {
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-4">
 
       {/*Articulo 1*/}
-      <article className="bg-neutral-900 shadow min-h-[200px] rounded-lg p-4 border border-stone-700">
+      {/* <article className="bg-neutral-900 shadow min-h-[200px] rounded-lg p-4 border border-stone-700">
         <div>
           <p className="text-gray-300 mb-4 leading-5"><strong>UseState y UseEffect</strong> El punto de partida</p>
-          <p className="text-gray-300 mb-4 leading-5">Aprende cómo manejar estados y efectos secundarios en React con los Hooks más utilizados.
+          <p className="text-gray-500 mb-4 leading-5">Aprende cómo manejar estados y efectos secundarios en React con los Hooks más utilizados.
             Ideal para quienes recén comienzan o quieren reforzar conceptos claves.
           </p>
         </div>
-      </article>
+        <ButtonLeerMas />
+      </article> */}
 
       {/*Articulo 2*/}
-      <article className="bg-neutral-900 shadow min-h-[200px] rounded-lg p-4 border border-stone-700">
+      {/* <article className="bg-neutral-900 shadow min-h-[200px] rounded-lg p-4 border border-stone-700">
         <div>
           <p className="text-gray-300 mb-4 leading-5"><strong>Nombre Hoock</strong></p>
-          <p className="text-gray-300 mb-4 leading-5">descripcion hoock 2</p>
+          <p className="text-gray-400 mb-4 leading-5">descripcion hoock 2</p>
         </div>
-      </article>
+        <ButtonLeerMas />
+      </article> */}
 
       {/*Articulo 3*/}
-      <article className="bg-neutral-900 shadow min-h-[200px] rounded-lg p-4 border border-stone-700">
+      {/* <article className="bg-neutral-900 shadow min-h-[200px] rounded-lg p-4 border border-stone-700">
         <div>
           <p className="text-gray-300 mb-4 leading-5"><strong>Nombre Hoock</strong></p>
-          <p className="text-gray-300 mb-4 leading-5">descripcion hoock 3</p>
+          <p className="text-gray-400 mb-4 leading-5">descripcion hoock 3</p>
         </div>
-      </article>
+      <ButtonLeerMas />
+      </article> */}
+    {hooksData.HooksDataCards.map((hook, index) => (
+            <CardArticle
+              key={index}
+              titulo={hook.titulo}
+              subtitulo={hook.subtitulo}
+              descripcion={hook.descripcion}
+            />
+            ))}
       </div>
+
     </main>
     </>
   );
