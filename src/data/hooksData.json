@@ -1,32 +1,37 @@
-[
-  {
-    "titulo": "useState",
-    "subtitulo": "El punto de partida para estado local",
-    "descripcion": "El hook useState te permite añadir una variable de estado a un componente funcional. Cuando lo llamas, React recuerda ese estado entre renderizados y te da un valor y una función para actualizarlo. Por ejemplo: const [count, setCount] = useState(0); cada vez que llames setCount, React volverá a renderizar el componente con el nuevo valor. :contentReference[oaicite:4]{index=4}"
-  },
-  {
-    "titulo": "useEffect",
-    "subtitulo": "Sincronizar con sistemas externos",
-    "descripcion": "El hook useEffect te permite sincronizar tu componente con sistemas externos (como APIs, timers, suscripciones) después del renderizado. Se llama así: useEffect(setupFunction, [dependencias]); React ejecuta la función de efecto cuando se monta, y cada vez que cambian las dependencias, y limpia si la devolución lo pide. Este hook sustituye parts del ciclo de vida de clases (componentDidMount, componentDidUpdate, componentWillUnmount). :contentReference[oaicite:5]{index=5}"
-  },
-  {
-    "titulo": "useContext",
-    "subtitulo": "Compartir datos sin pasar props manualmente",
-    "descripcion": "El hook useContext te permite leer y suscribirte al valor de un Contexto creado con createContext en React, sin necesidad de pasar props manualmente por cada nivel del árbol de componentes. Por ejemplo: const theme = useContext(ThemeContext); Si no hay un Provider más arriba en el árbol, se devuelve el valor por defecto del Contexto. :contentReference[oaicite:6]{index=6}"
-  },
-  {
-    "titulo": "useRef",
-    "subtitulo": "Referencias mutables que persisten entre renderizados",
-    "descripcion": "El hook useRef te permite crear una referencia mutable que persiste durante todo el ciclo de vida del componente. Se usa así: const myRef = useRef(initialValue); La propiedad current de la referencia puede ser leída y modificada sin causar un nuevo renderizado. Es útil para acceder a elementos DOM directamente o para almacenar valores mutables que no afectan la UI. :contentReference[oaicite:7]{index=7}"
-  },
-  {
-    "titulo": "useMemo",
-    "subtitulo": "Memorizar valores calculados",
-    "descripcion": "El hook useMemo te permite memorizar un valor calculado entre renderizados, evitando cálculos costosos innecesarios. Se usa así: const memoizedValue = useMemo(() => computeExpensiveValue(a, b), [a, b]); React solo volverá a calcular el valor cuando alguna de las dependencias cambie. Esto es útil para optimizar el rendimiento en componentes que realizan cálculos intensivos. :contentReference[oaicite:8]{index=8}"
-  },
-  {
-    "titulo": "useCallback",
-    "subtitulo": "Memorizar funciones",
-    "descripcion": "El hook useCallback te permite memorizar una función entre renderizados, evitando que se vuelva a crear en cada renderizado. Se usa así: const memoizedCallback = useCallback(() => { doSomething(a, b); }, [a, b]); React solo volverá a crear la función cuando alguna de las dependencias cambie. Esto es útil para optimizar el rendimiento en componentes que pasan funciones como props a componentes hijos. :contentReference[oaicite:9]{index=9}"
-  }
-]
+{
+  "HooksDataCards":[
+    {
+      "titulo": "useState",
+      "subtitulo": "El punto de partida para estado local",
+      "descripcion": "El hook useState te permite añadir una variable de estado a un componente funcional. Cuando lo llamas, React recuerda ese estado entre renderizados y te da un valor y una función para actualizarlo. Por ejemplo: const [count, setCount] = useState(0); cada vez que llames setCount, React volverá a renderizar el componente con el nuevo valor."
+    },
+    {
+      "titulo": "useEffect",
+      "subtitulo": "Sincronizar con sistemas externos",
+      "descripcion": "El hook useEffect te permite sincronizar tu componente con sistemas externos (como APIs, timers, suscripciones) después del renderizado. Se llama así: useEffect(setupFunction, [dependencias]); React ejecuta la función de efecto cuando se monta, y cada vez que cambian las dependencias, y limpia si la devolución lo pide. Este hook sustituye partes del ciclo de vida de clases (componentDidMount, componentDidUpdate, componentWillUnmount)."
+    },
+    {
+      "titulo": "useContext",
+      "subtitulo": "Compartir datos sin pasar props",
+      "descripcion": "El hook useContext te permite leer y suscribirte al valor de un Contexto creado con createContext en React, sin necesidad de pasar props manualmente por cada nivel del árbol de componentes. Por ejemplo: const theme = useContext(ThemeContext); Si no hay un Provider más arriba en el árbol, se devuelve el valor por defecto del Contexto."
+    },
+    {
+      "titulo": "useRef",
+      "subtitulo": "Referencias mutables que persisten",
+      "descripcion": "El hook useRef te permite crear una referencia mutable que persiste durante todo el ciclo de vida del componente. Se usa así: const myRef = useRef(initialValue); La propiedad current de la referencia puede ser leída y modificada sin causar un nuevo renderizado. Es útil para acceder a elementos DOM directamente o para almacenar valores mutables que no afectan la UI."
+    },
+    {
+      "titulo": "useMemo",
+      "subtitulo": "Memorizar valores calculados",
+      "descripcion": "El hook useMemo te permite memorizar un valor calculado entre renderizados, evitando cálculos costosos innecesarios. Se usa así: const memoizedValue = useMemo(() => computeExpensiveValue(a, b), [a, b]); React solo volverá a calcular el valor cuando alguna de las dependencias cambie. Esto es útil para optimizar el rendimiento en componentes que realizan cálculos intensivos."
+    },
+    {
+      "titulo": "useCallback",
+      "subtitulo": "Memorizar funciones",
+      "descripcion": "El hook useCallback te permite memorizar una función entre renderizados, evitando que se vuelva a crear en cada renderizado. Se usa así: const memoizedCallback = useCallback(() => { doSomething(a, b); }, [a, b]); React solo volverá a crear la función cuando alguna de las dependencias cambie. Esto es útil para optimizar el rendimiento en componentes que pasan funciones como props a componentes hijos."
+    }
+  ]
+}
+
+
+
