@@ -6,7 +6,8 @@ function CardArticle({ titulo, subtitulo, descripcion }) {
   return (
     <>
 
-        <article className="bg-neutral-900 shadow min-h-[200px] rounded-lg p-4 border border-stone-700">
+        <article className="bg-neutral-900 shadow min-h-[200px] rounded-lg p-4 border border-stone-700
+        transform transition-all duration-300 hover:translate-y-lg hover:shadow-cyan-500/20 hover:border-cyan-600">
           <div>
             <h3 className="font-medium text-2xl text-neutral-300 mb-4 leading-5">{titulo}</h3>
             <h4 className="font-semibold text-neutral-400 mb-4 leading-5">{subtitulo}</h4>
