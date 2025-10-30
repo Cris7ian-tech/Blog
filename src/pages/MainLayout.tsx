@@ -14,7 +14,7 @@ const MainLayout: React.FC = () => {
 
           {/*TEXTOS*/ }
         <div className="content-end bg-cyan-600 md:col-span-3 rounded-lg px-4 py-6">
-          <h2 className="text-gray-300 text-2xl font-bold py-4">Hola! soy Cristian✌️</h2>
+          <h2 className="text-gray-300 text-2xl font-bold py-4">Hola! soy Cristian ✌️</h2>
           <p className="text-gray-300 mb-4 leading-5" > Soy un <strong>desarrollador web en proceso</strong>y éste es mi blog, donde comparto mis proyectos y experiencias en la programación. 
           </p>
 
