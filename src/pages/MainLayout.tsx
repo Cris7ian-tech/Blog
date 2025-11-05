@@ -1,6 +1,6 @@
 import hooksData from "../data/HooksData.json";
 import CardArticle from "../components/ui/CardArticle.tsx";
-import ButtonLeerMas from "../components/ui/ButtonLeerMas.tsx";
+// import ButtonLeerMas from "../components/ui/ButtonLeerMas.tsx";
 
 const MainLayout = () => {
   return (
