@@ -1,46 +1,53 @@
+import type React from "react";
+
 /* COMPONENTE PADRE: CARD  */
-interface CardProps {
+interface CardProps extends
+React.ComponentPropsWithoutRef<"div"> {
   children: React.ReactNode;
   className?: string;
 }
 
-export default function Card({ children, className }: CardProps) {
+const Card: React.FC<CardProps> = ({ children, className }) => {
   return (
     <div
-      className={`bg-neutral-700 shadow min-h-[300px] rounded-lg p-4 border border-stone-700 ${className}`}
+      className={`bg-neutral-200 shadow min-h-[300px] rounded-2xl border border-stone-700 ${className}`}
     >
       {children}
     </div>
   );
 }
 
-/* COMPONENTE HIJO: CARDhEADER */
-interface CardHeaderProps {
+/* COMPONENTE HIJO: CARDHEADER */
+interface CardHeaderProps extends
+React.ComponentPropsWithoutRef<"div"> {
   children: React.ReactNode;
   className?: string;
 }
 
-export function CardHeader({ children, className }: CardHeaderProps) {
+const CardHeader : React.FC<CardHeaderProps> = ({ children, className }) => {
   return <div className={`mb-4 ${className}`}>{children}</div>;
 }
 
 /* COMPONENTE HIJO: CARD BODY */
-interface CardBodyProps {
+interface CardBodyProps extends
+React.ComponentPropsWithoutRef<"div"> {
   children: React.ReactNode;
   className?: string;
 }
 
-export function CardBody({ children, className }: CardBodyProps) {
-  return <div className={`mb-4 ${className}`}>{children}</div>;   
+const CardBody: React.FC<CardBodyProps> = ({ children, className }) => {
+  return <div className={`mb-4 ${className}`}>{children}</div>;
 }
 
 /* COMPONENTE HIJO: CARD FOOTER */
-interface CardFooterProps {
+interface CardFooterProps extends
+React.ComponentPropsWithoutRef<"div"> {
   children: React.ReactNode;
   className?: string;
 }
 
-export function CardFooter({ children, className }: CardFooterProps) {
-  return <div className={`mb-4 ${className}`}>{children}</div>;   
+const CardFooter: React.FC<CardFooterProps> = ({ children, className }) => {
+  return <div className={`${className}`}>{children}</div>;
 }   
 
+export { Card, CardHeader, CardBody, CardFooter };
