@@ -19,9 +19,9 @@ function CardArticle({ titulo, subtitulo, descripcion }: CardArticleProps) {
               <Paragraph className="font-medium text-2xl text-neutral-300 mb-4 leading-5">
                 <h3 className="font-medium text-2xl text-neutral-300 mb-4 leading-5">{titulo}</h3>
                 <h4 className="font-medium text-xl text-neutral-500 mb-4 leading-5">{subtitulo}</h4>
-                {expandida ? descripcion : `${descripcion.slice(0, 100)}...`  }
+                {expandida ? descripcion : `${descripcion.slice(0, 90)}...`  }
                 <button
-                  className="text-cyan-400 ml-2 hover:underline"
+                  className="text-cyan-400 font-medium hover:underline self-start block"
                   onClick={() => setExpandida(!expandida)}>
                   {expandida ? 'Leer menos' : 'Leer más'}
                 </button>
