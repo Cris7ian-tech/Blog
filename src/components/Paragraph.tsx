@@ -8,7 +8,7 @@ interface CustomButtonProps extends React.ComponentPropsWithoutRef<'p'> {
 const Paragraph : React.FC<CustomButtonProps> = ({children, className}) => {
     
   return (
-    <p className={`text-lg text-neutral-600 mb-4 leading-5 ${className}`}>
+    <p className={`text-base text-neutral-500 mb-4 leading-5 ${className}`}>
       {children}
     </p>
 );
