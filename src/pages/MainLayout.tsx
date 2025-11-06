@@ -16,15 +16,15 @@ const MainLayout = () => {
         </div>
 
           {/*TEXTOS*/ }
-        <div className="content-end bg-cyan-600 md:col-span-3 rounded-lg px-4 py-6">
+        <div className="content-end bg-[#eb7d69] md:col-span-3 rounded-lg px-4 py-6">
           <h2 className="text-gray-300 text-2xl font-bold py-4">Hola! soy Cristian ✌️</h2>
-          <p className="text-gray-300 mb-4 leading-5" > Soy un <strong>desarrollador web en proceso</strong>y éste es mi blog, donde comparto mis proyectos y experiencias en la programación. 
+          <p className="text-lg text-gray-300 mb-4 leading-5" > Soy un <strong>desarrollador web en proceso</strong>y éste es mi blog, donde comparto mis proyectos y experiencias en la programación. 
           </p>
 
-          <p className="text-gray-300 mb-4 leading-5">  
+          <p className="text-lg text-gray-300 mb-4 leading-5">  
             La primera publicación sará sobre <strong>React</strong>  y sus <strong>Hooks</strong> , una herramienta clave y poderosa para crear aplicaciones modernas y dinámicas.
           </p>
-          <p className="text-gray-300 mb-4 leading-5"> 
+          <p className="text-lg text-gray-300 mb-4 leading-5"> 
             Si estás empezando con React o queres mejorar tu forma de trabajar con componentes funcionales, <strong>este espacio es para vos.</strong>            
           </p>
         </div>
