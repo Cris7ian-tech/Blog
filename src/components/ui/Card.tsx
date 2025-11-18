@@ -39,7 +39,7 @@ const CardBody: React.FC<CardBodyProps> = ({ children, className }) => {
   return <div className={`mb-4 ${className}`}>{children}</div>;
 }
 
-/* CardImage */
+/* COMPONENTE HIJO: CARD IMAGE */
 interface CarImageProps extends
 React.ComponentPropsWithoutRef<"img"> {
   children: React.ReactNode;
