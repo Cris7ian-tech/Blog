@@ -39,6 +39,22 @@ const CardBody: React.FC<CardBodyProps> = ({ children, className }) => {
   return <div className={`mb-4 ${className}`}>{children}</div>;
 }
 
+/* CardImage */
+interface CarImageProps extends
+React.ComponentPropsWithoutRef<"img"> {
+  children: React.ReactNode;
+  className?: string;
+
+const CardImage: React.FC<CardImageProps> = ({ className, ...props }) => {
+  return (
+    <img
+    {...props}
+    className={`w-full h-40 object-contain rounded-t-2xl ${className}`}
+    />
+    )
+  }
+}
+
 /* COMPONENTE HIJO: CARD FOOTER */
 interface CardFooterProps extends
 React.ComponentPropsWithoutRef<"div"> {
@@ -50,4 +66,4 @@ const CardFooter: React.FC<CardFooterProps> = ({ children, className }) => {
   return <div className={`${className}`}>{children}</div>;
 }   
 
-export { Card, CardHeader, CardBody, CardFooter };
+export { Card, CardHeader, CardBody, CardFooter, CardImage };
