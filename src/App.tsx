@@ -6,6 +6,7 @@ import Footer from "./components/Footer.tsx";
 import Header from "./components/Header.tsx";
 import "./index.css";
 
+
 function App() {
   return (
     <>
@@ -42,7 +43,11 @@ function App() {
           </CardFooter>
 
         </Card>
+        
       </main>
+      <div>
+        
+      </div>
 
       <footer>
         <Footer />
