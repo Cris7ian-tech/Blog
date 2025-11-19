@@ -27,6 +27,7 @@ function PokemonsGrid() {
       {pokemons.map((pokemon: Pokemon) => (
         <PokeCard
           key={pokemon.id}
+          id={pokemon.id}
           name={pokemon.name}
           image={pokemon.image}
           types={pokemon.types}
