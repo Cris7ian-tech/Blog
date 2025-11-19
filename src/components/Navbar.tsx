@@ -68,7 +68,6 @@ const Navbar: React.FC = () => {
               className="hover:text-blue-300 transition-colors duration-200">
               Contacto
             </a>
-
           </div>
         </div>
       </div>
@@ -96,8 +95,8 @@ const Navbar: React.FC = () => {
             onClick={() => setIsOpen(false)}>
             Contacto
           </a>
-          
         </div>
+        
       )}
     </nav>
   );
