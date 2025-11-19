@@ -55,25 +55,41 @@ const MainLayout = () => {
         ))}
       </div>
 
-      {/* POKEMONS TEMPORAL PARA TESTEAR */}
-      {/* <div className="mt-12">
-        <h2 className="text-4xl font-bold text-gray-100 mb-4 text-center">Pokemons Api TesT</h2>
-        
-        <PokemonsGrid />
-      </div> */}
-      <div className="mt-16 bg-neutral-800/40 backdrop-blur-sm rounded-2xl p-8 shadow-xl border border-white/10">
-        <h2 className="text-4xl font-extrabold text-cyan-300 mb-6 text-center tracking-tight drop-shadow">
-          Pokemons API Test
-        </h2>
+      {/* HERO POKEDEX */}
+<section className="mt-20 text-center px-4">
+  <div className="
+    mx-auto max-w-3xl 
+    p-10 
+    rounded-3xl 
+    bg-white/10 
+    backdrop-blur-md 
+    border border-white/20
+    shadow-xl
+    bg-linear-to-br from-purple-800/40 to-blue-700/40
+  ">
+    <h2 className="text-5xl font-extrabold text-white drop-shadow-lg">
+      Pokédex Explorer
+    </h2>
 
-        <p className="text-gray-300 text-center max-w-2xl mx-auto mb-8">
-          Renderizando 120 pokemones desde <strong>PokeAPI</strong>, usando tu propio
-          <span className="text-cyan-400"> hook personalizado</span> y tus componentes
-          de Card. Esta sección pronto será su propia página.
-        </p>
+    <p className="text-gray-200 text-lg mt-4">
+      Descubre, explora y colecciona tus Pokémon favoritos con estilo ✨
+    </p>
+  </div>
+</section>
 
-        <PokemonsGrid />
-      </div>
+{/* GRID DE POKEMONS */}
+  <div className="mt-16 px-4">
+    <div className="
+      p-6 
+      rounded-3xl 
+      bg-white/5 
+      backdrop-blur-md 
+      border border-white/10 
+      shadow-lg
+    ">
+      <PokemonsGrid />
+    </div>
+  </div>
 
     </main>
     </>
