@@ -1,3 +1,4 @@
+import {motion} from "framer-motion";
 import {usePokemons} from "../hooks/usePokemons";
 import type {Pokemon} from "../hooks/usePokemons";
 
@@ -23,17 +24,23 @@ function PokemonsGrid() {
   }
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6 p-4">
-      {pokemons.map((pokemon: Pokemon) => (
-        <PokeCard
-          key={pokemon.id}
-          id={pokemon.id}
-          name={pokemon.name}
-          image={pokemon.image}
-          types={pokemon.types}
-        />
-      ))}
-    </div>
+    <motion.div
+      initial={{ opacity: 0, y: 30 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
+      >
+        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6 p-4">
+          {pokemons.map((pokemon: Pokemon) => (
+              <PokeCard
+              key={pokemon.id}
+              id={pokemon.id}
+              name={pokemon.name}
+              image={pokemon.image}
+              types={pokemon.types}
+              />
+          ))}
+        </div>
+    </motion.div>
   );
 }
 

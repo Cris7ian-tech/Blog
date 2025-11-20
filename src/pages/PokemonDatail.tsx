@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
+import { motion } from "framer-motion";
 import { typeColors } from "../utils/pokemonColors";
 
 interface PokemonData {
@@ -19,14 +20,12 @@ function PokemonDetail() {
   const [pokemon, setPokemon] = useState<PokemonData | null>(null);
   const [loading, setLoading] = useState(true);
 
+  // FETCH
   useEffect(() => {
     async function fetchPokemon() {
       try {
         const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`);
-
-        if (!response.ok) {
-          throw new Error("No se encontró el Pokémon");
-        }
+        if (!response.ok) throw new Error("No se encontró el Pokémon");
 
         const data = await response.json();
         setPokemon(data);
@@ -44,14 +43,11 @@ function PokemonDetail() {
     return <p className="text-center text-gray-200">Cargando...</p>;
 
   if (!pokemon)
-    return (
-      <p className="text-center text-red-400">Pokémon no encontrado</p>
-    );
+    return <p className="text-center text-red-400">Pokémon no encontrado</p>;
 
+  // DATA
   const name = pokemon.name;
-  const image =
-    pokemon.sprites.other["official-artwork"].front_default;
-
+  const image = pokemon.sprites.other["official-artwork"].front_default;
   const types = pokemon.types.map((t) => t.type.name);
   const mainType = types[0];
   const color = typeColors[mainType] || "#777";
@@ -63,7 +59,7 @@ function PokemonDetail() {
         background: `linear-gradient(160deg, ${color}55, #1e1e1e 70%)`,
       }}
     >
-      {/* Botón volver */}
+      {/* Volver */}
       <button
         onClick={() => navigate(-1)}
         className="mb-10 px-5 py-2 rounded-lg font-semibold bg-black/30 backdrop-blur-md border border-white/20 hover:bg-white/10 transition"
@@ -71,59 +67,93 @@ function PokemonDetail() {
         ← Volver
       </button>
 
-      {/* Contenedor principal */}
-      <div className="max-w-3xl mx-auto bg-white/10 backdrop-blur-xl p-10 rounded-3xl shadow-xl border border-white/20 relative">
-        {/* Imagen principal */}
-        <img
+      {/* Card principal */}
+      <motion.div
+        initial={{ opacity: 0, y: 40 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+        className="max-w-3xl mx-auto bg-white/10 backdrop-blur-xl p-10 rounded-3xl shadow-xl border border-white/20 relative"
+      >
+        {/* Imagen con float + glow */}
+        <motion.img
           src={image}
           alt={name}
-          className="w-72 mx-auto drop-shadow-[0_20px_25px_rgba(0,0,0,0.4)] transition-transform duration-300 hover:scale-105"
+          className="w-72 mx-auto drop-shadow-[0_20px_25px_rgba(0,0,0,0.4)]"
+          initial={{ opacity: 0, scale: 0.8, y: 20 }}
+          animate={{
+            opacity: 1,
+            scale: 1,
+            y: 0,
+            filter: `drop-shadow(0px 0px 25px ${color}80)`,
+          }}
+          transition={{
+            duration: 0.8,
+            ease: "easeOut",
+          }}
         />
 
         {/* Nombre */}
-        <h1
+        <motion.h1
           className="text-5xl font-extrabold capitalize text-center mt-6"
           style={{ color }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.3 }}
         >
           {name}
-        </h1>
+        </motion.h1>
 
         {/* Tipos */}
-        <div className="flex justify-center gap-4 mt-4">
+        <motion.div
+          className="flex justify-center gap-4 mt-4"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.4 }}
+        >
           {types.map((t) => (
-            <span
+            <motion.span
               key={t}
               className="px-4 py-1 rounded-full text-white font-semibold shadow"
               style={{ backgroundColor: typeColors[t] }}
+              initial={{ scale: 0.7, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              transition={{ duration: 0.3 }}
             >
               {t}
-            </span>
+            </motion.span>
           ))}
-        </div>
+        </motion.div>
 
         {/* Stats */}
         <h2 className="text-2xl font-semibold mt-10 mb-4">Estadísticas</h2>
 
         <div className="space-y-4">
-          {pokemon.stats.map((s) => (
-            <div key={s.stat.name}>
+          {pokemon.stats.map((s, i) => (
+            <motion.div
+              key={s.stat.name}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.5 + i * 0.1 }}
+            >
               <div className="flex justify-between mb-1">
                 <span className="capitalize">{s.stat.name}</span>
                 <span>{s.base_stat}</span>
               </div>
+
+              {/* Barra animada */}
               <div className="w-full h-3 bg-white/20 rounded-full overflow-hidden">
-                <div
-                  className="h-full rounded-full transition-all duration-700"
-                  style={{
-                    width: `${s.base_stat / 1.5}%`,
-                    backgroundColor: color,
-                  }}
-                ></div>
+                <motion.div
+                  className="h-full rounded-full"
+                  style={{ backgroundColor: color }}
+                  initial={{ width: 0 }}
+                  animate={{ width: `${s.base_stat / 1.5}%` }}
+                  transition={{ duration: 0.8, ease: "easeOut" }}
+                />
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 }
