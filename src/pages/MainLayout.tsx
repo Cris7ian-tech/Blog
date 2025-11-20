@@ -1,6 +1,7 @@
 import PokemonsGrid from "../components/PokemonsGrid.tsx";
 import hooksData from "../data/HooksData.json";
 import CardArticle from "../components/ui/CardArticle.tsx";
+import UserAvatarCard from "../components/UserAvatarCard.tsx.tsx";
 
 const MainLayout = () => {
   return (
@@ -24,6 +25,9 @@ const MainLayout = () => {
           <h2 className="text-gray-100 text-2xl font-bold py-2">
             Hola! soy Cristian ✌️
           </h2>
+
+        {/* Probamos generador de avatar */}
+          <UserAvatarCard />
 
           <p className="text-lg text-gray-100 mb-4 leading-relaxed">
             Soy un <strong>desarrollador web en proceso</strong> y este es mi

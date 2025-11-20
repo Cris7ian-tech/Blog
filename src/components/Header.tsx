@@ -1,46 +1,160 @@
 
-import { useState } from "react";
-import Avvvatars from "avvvatars-react"
-import { Link } from "react-router-dom";
+import Avvvatars from "avvvatars-react";
+import  {useUserName}  from "../hooks/useUserName";
 
-export default function Header() {
-  
-  const [nickname, setNickname] = useState("");
+import { useState } from "react";
+import { NavLink } from "react-router-dom";
+
+const Header = () => {
+  const [ name ] = useUserName();
+  const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <header className="bg-neutral-800 p-4 text-neutral-200 shadow-gray-50/10 shadow-md">
-      <nav className="flex flex-col md:flex-row justify-around">
-        <Link to="/"
-            className="text-2xl font-semibold hover:text-cyan-500">
-          Blog
-        </Link>
 
-        <ul className="flex flex-col text-center md:flex-row space-y-4 md:space-y-0 md:space-x-4">
-          <li className="font-semibold py-2 px-4 rounded-full border border-transparent hover:border-cyan-400 transition duration-300 cursor-pointer hover:bg-cyan-400 hover:text-black">
-              <Link to="/projects">Proyectos</Link>
-          </li>
-          <li className="font-semibold py-2 px-4 rounded-full border border-transparent hover:border-cyan-400 transition duration-300 cursor-pointer hover:bg-cyan-400 hover:text-black">
-              <Link to="/contacto" className="hover:text-gray-700">Contacto</Link>
-          </li>
-        </ul>
+    <>
+      <header className="px-22 bg-neutral-800 shadow-sm shadow-red-300/20">
+      
+        <nav className="flex flex-col md:flex-row justify-between py-4">
+          
+          <a href="/" className="hidden md:block text-2xl font-bold text-white mb-4 md:mb-0">
+          MyBlog
+          </a>
 
-        <div className="flex items-center justify-center gap-2">
-          <input type="text"
-          className="bg-neutral-900 p-2 rounded-2xl text-gray-400 text-center w-40"
-          value={nickname}
-          onChange={event => setNickname(event.target.value)}
-          placeholder="ingresa tu nombre" />
+          {/** MOBILE MENU **/}
+          <section className="flex md:hidden">
+            {/* HAMBURGUESA LATE*/}
+            <div className="space-y-2"
+            onClick={() => setIsOpen(!isOpen)}>
+              <span className="block h-0.5 w-8 animate-pulse bg-gray-200"></span>
+              <span className="block h-0.5 w-8 animate-pulse bg-gray-200"></span>
+              <span className="block h-0.5 w-8 animate-pulse bg-gray-200"></span>
+            </div>
 
-          <Avvvatars
-            value={nickname}
-            style="character"
-            // style="shape"
-            size={30}
-          />
+            <div className={isOpen ? "showMenuNav" : "hideMenuNav"}>
+              <div className="absolute top-0 right-0 px-8 py-8"
+                onClick={() => setIsOpen(false)}
+                >
+                <svg className="h-8 w-8 text-gray-200"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      >
+                      <line x1="18" y1="6" x2="6" y2="18" />
+                      <line x1="6" y1="6" x2="18" y2="18" />
+                </svg>
+              </div>
+          {/* NAVEGACION MOBILE OPEN */}
+              <ul className="flex flex-col items-center justify-between min-h-[250px]">
+                <li className="border-b border-gray-600 my-8 uppercase">
+                  <NavLink
+                  to="/"
+                  className={({isActive}) => isActive ? "text-[#eb7d69]" : "text-white"}> 
+                  
+                  Inicio
+                  </NavLink>
+                </li>
+
+
+                <li className="border-b border-gray-600 my-8 uppercase">
+                  <NavLink
+                  to="/blog"
+                  className={({isActive}) => isActive ? "text-[#eb7d69]" : "text-white"}> 
+
+                  Blog
+                  </NavLink>
+                </li>
+                
+                <li className="border-b border-gray-600 my-8 uppercase">
+                  <NavLink
+                  to="/contacto"
+                  className={({isActive}) => isActive ? "text-[#eb7d69]" : "text-white"}> 
+                  
+                  Contacto
+                  </NavLink>
+                </li>
+            { name && (
+                <div className="flex justify-center mt-6 md:hidden">
+                  <div className="bg-white/10 backdrop-blur-lg p-1 rounded-full border border-white/20">
+                    <Avvvatars value={name} size={50} style="shape" />
+                  </div>
+                </div>
+            )}
+              </ul>
+            </div>
+  
+
+          </section>
+
+          {/* NAVEGACION DESKTOP */}
+          <ul className="hidden text-lg space-x-8 md:flex">
+            <li>
+                <NavLink
+                to="/"
+                  className={({isActive}) => isActive ? "text-[#eb7d69]" : "text-white"}>
+                    Inicio
+                </NavLink>
+            </li>
+
+            <li>
+                <NavLink
+                to="/projects"
+                  className={({isActive}) => isActive ? "text-[#eb7d69]" : "text-white"}>
+                    Projectos
+                </NavLink>
+            </li>
+
+            <li>
+                <NavLink
+                to="/contacto"
+                  className={({isActive}) => isActive ? "text-[#eb7d69]" : "text-white"}>
+                    Contacto
+                </NavLink>
+            </li>
+        {/* ESTO ES PARA EL AVATAR */}
+        { name && (
+          <div className="hidden md:flex items-center pr-4">
+            <div className="bg-white/10 backdrop-blur-lg p-1 rounded-full border border-white/20">
+              <Avvvatars 
+              value={name} 
+              size={32} 
+              // style="character" />
+              style="shape" />
+            </div>
           </div>
-      </nav>
+)}
+          </ul>
+
+        </nav>
+
+        <style>
+          {`
+      .hideMenuNav {
+        display: none;
+      }
+      .showMenuNav {
+        display: block;
+        position: absolute;
+        width: 100%;
+        height: 100vh;
+        top: 0;
+        left: 0;
+        background: rgba(17,17,17,0.8);
+        backdrop-filter: blur(10px);
+        z-index: 10;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+      }
+    `}
+        </style>
     </header>
+
+    </>
   )
 }
 
-
+export default Header
