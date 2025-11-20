@@ -59,7 +59,7 @@ function PokeCard({ id, name, image, types }: PokeCardProps) {
       <CardFooter>
         <button
           onClick={() => navigate(`/pokemon/${id}`)}
-          className="w-full text-white py-2 rounded-lg font-semibold transition"
+          className="w-full text-white py-2 rounded-lg font-semibold transition shadow-md hover:shadow-lg hover:brightness-110"
           style={{
             backgroundColor: color,
             boxShadow: `0 3px 6px ${color}55`,
