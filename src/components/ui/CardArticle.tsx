@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import Paragraph from "../Paragraph";
+import Paragraph from "./Paragraph";
 
 type CardArticleProps = {
   titulo: string;
