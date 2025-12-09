@@ -1,16 +1,38 @@
-import PokemonsGrid from "../components/PokemonsGrid.tsx";
-import hooksData from "../data/HooksData.json";
-import CardArticle from "../components/ui/CardArticle.tsx";
-import UserAvatarCard from "../components/UserAvatarCard.tsx.tsx";
+
+import { useNavigate } from "react-router-dom";
+import UserAvatarCard from "../components/UserAvatarCard.tsx";
+import ProjectCard from "../components/ProjectCard.tsx";
 
 const MainLayout = () => {
+  const navigate = useNavigate();
+
+  const projects = [
+    {
+      title: "Pokedex Explorer",
+      description: "Explorá todos los Pokémon: búsqueda, paginación, filtros y detalles.",
+      image: "/src/assets/pokedex.png",
+      link: "/pokemons",
+    },
+    {
+      title: "React Hooks Series",
+      description: "Artículos profundizando en los Hooks de React.",
+      image: "/src/assets/hooks.png",
+      link: "/blog/hooks",
+    },
+    {
+      title: "UI Experiments",
+      description: "Animaciones, microinteracciones y experimentos visuales.",
+      image: "/src/assets/ui-experiments.png",
+      link: "/projects/ui-experiments",
+    }
+  ];
+
   return (
-    <>
     <main className="min-h-screen p-4 sm:p-6 md:p-12 lg:p-20">
-      
-      {/* SECCIÓN PRESENTACIÓN */}
+
+      {/* PRESENTACIÓN */}
       <div className="grid grid-cols-1 md:grid-cols-5 gap-4">
-        
+
         {/* IMAGEN */}
         <div className="md:col-span-2 rounded-lg overflow-hidden bg-gray-700">
           <img
@@ -26,77 +48,38 @@ const MainLayout = () => {
             Hola! soy Cristian ✌️
           </h2>
 
-        {/* Probamos generador de avatar */}
           <UserAvatarCard />
 
           <p className="text-lg text-gray-100 mb-4 leading-relaxed">
-            Soy un <strong>desarrollador web en proceso</strong> y este es mi
-            blog, donde comparto mis proyectos y experiencias en la programación.
-          </p>
-
-          <p className="text-lg text-gray-100 mb-4 leading-relaxed">
-            La primera publicación será sobre <strong>React</strong> y sus{" "}
-            <strong>Hooks</strong>, una herramienta clave para crear aplicaciones
-            modernas y dinámicas.
+            Soy un <strong>desarrollador web en proceso</strong> y este es mi blog.
           </p>
 
           <p className="text-lg text-gray-100 leading-relaxed">
-            Si estás empezando con React o querés mejorar tu forma de trabajar
-            con componentes funcionales, <strong>este espacio es para vos.</strong>
+            Acá comparto mis proyectos, experimentos y aprendizajes.
           </p>
         </div>
       </div>
 
-      {/* ARTÍCULOS */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
-        {hooksData.HooksDataCards.map((hook, index) => (
-          <CardArticle
-            key={index}
-            titulo={hook.titulo}
-            subtitulo={hook.subtitulo}
-            descripcion={hook.descripcion}
-          />
-        ))}
-      </div>
+      {/* PROYECTOS DESTACADOS */}
+      <section className="mt-14">
+        <h2 className="text-3xl font-bold text-gray-100 mb-6">
+          Proyectos destacados
+        </h2>
 
-      {/* HERO POKEDEX */}
-<section className="mt-20 text-center px-4">
-  <div className="
-    mx-auto max-w-3xl 
-    p-10 
-    rounded-3xl 
-    bg-white/10 
-    backdrop-blur-md 
-    border border-white/20
-    shadow-xl
-    bg-linear-to-br from-purple-800/40 to-blue-700/40
-  ">
-    <h2 className="text-5xl font-extrabold text-white drop-shadow-lg">
-      Pokédex Explorer
-    </h2>
-
-    <p className="text-gray-200 text-lg mt-4">
-      Descubre, explora y colecciona tus Pokémon favoritos con estilo ✨
-    </p>
-  </div>
-</section>
-
-{/* GRID DE POKEMONS */}
-  <div className="mt-16 px-4">
-    <div className="
-      p-6 
-      rounded-3xl 
-      bg-white/5 
-      backdrop-blur-md 
-      border border-white/10 
-      shadow-lg
-    ">
-      <PokemonsGrid />
-    </div>
-  </div>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {projects.map((p) => (
+            <ProjectCard
+              key={p.title}
+              title={p.title}
+              description={p.description}
+              image={p.image}
+              onClick={() => navigate(p.link)}
+            />
+          ))}
+        </div>
+      </section>
 
     </main>
-    </>
   );
 };
 
