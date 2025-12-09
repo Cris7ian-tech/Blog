@@ -1,34 +1,130 @@
 {
   "HooksDataCards":[
     {
+      "id": "useState",
       "titulo": "useState",
-      "subtitulo": "El punto de partida para estado local",
-      "descripcion": "El hook useState te permite añadir una variable de estado a un componente funcional. Cuando lo llamas, React recuerda ese estado entre renderizados y te da un valor y una función para actualizarlo. Por ejemplo: const [count, setCount] = useState(0); cada vez que llames setCount, React volverá a renderizar el componente con el nuevo valor."
+      "subtitulo": "El hook fundamental para manejar estado local",
+      "descripcion": "useState te permite agregar estado a un componente funcional. React recuerda el valor entre renderizados y te da una función para actualizarlo. Cada vez que llamás a setState, el componente se vuelve a renderizar. Es ideal para valores simples, inputs, toggles y contadores.",
+      "videoUrl": "https://www.youtube.com/embed/kK_Wqx3RnHk",
+      "exampleCode": "import { useState } from 'react';\n\nexport default function Contador() {\n  const [count, setCount] = useState(0);\n\n  return (\n    <div>\n      <h2>Contador: {count}</h2>\n      <button onClick={() => setCount(count + 1)}>Sumar</button>\n      <button onClick={() => setCount(prev => prev - 1)}>Restar</button>\n    </div>\n  );\n}",
+      "bestPractices": [
+        "Ideal para estados simples o directos",
+        "Actualizaciones inmediatas y predecibles",
+        "Perfecto para formularios, toggles y contadores"
+      ],
+      "commonMistakes": [
+        "Mutar directamente el estado en lugar de crear uno nuevo",
+        "Depender del valor actual sin usar la función: setState(prev => prev + 1)",
+        "Usar un solo useState para manejar muchos valores en lugar de dividir el estado"
+      ]
     },
     {
+      "id": "useEffect",
       "titulo": "useEffect",
-      "subtitulo": "Sincronizar con sistemas externos",
-      "descripcion": "El hook useEffect te permite sincronizar tu componente con sistemas externos (como APIs, timers, suscripciones) después del renderizado. Se llama así: useEffect(setupFunction, [dependencias]); React ejecuta la función de efecto cuando se monta, y cada vez que cambian las dependencias, y limpia si la devolución lo pide. Este hook sustituye partes del ciclo de vida de clases (componentDidMount, componentDidUpdate, componentWillUnmount)."
+      "subtitulo": "Sincronizá tu componente con sistemas externos",
+      "descripcion": "useEffect permite ejecutar lógica después del renderizado: llamadas a APIs, timers, listeners o sincronización con el exterior. También permite limpiar efectos para evitar fugas de memoria. El array de dependencias controla cuándo se ejecuta el efecto.",
+      "videoUrl": "https://www.youtube.com/embed/TNhaISOUy6Q",
+      "exampleCode": "import { useEffect, useState } from 'react';\n\nexport default function Usuarios() {\n  const [users, setUsers] = useState([]);\n\n  useEffect(() => {\n    fetch('https://jsonplaceholder.typicode.com/users')\n      .then(res => res.json())\n      .then(data => setUsers(data));\n  }, []);\n\n  return (\n    <ul>\n      {users.map(u => <li key={u.id}>{u.name}</li>)}\n    </ul>\n  );\n}",
+      "bestPractices": [
+        "Perfecto para llamadas a APIs y suscripciones",
+        "Reemplaza el ciclo de vida de componentes de clase",
+        "Permite limpiar efectos cuando se desmonta"
+      ],
+      "commonMistakes": [
+        "Olvidar dependencias necesarias y generar inconsistencias",
+        "Agregar dependencias de más y producir loops infinitos",
+        "Poner lógica compleja dentro del efecto en lugar de abstraer funciones"
+      ]
     },
     {
+      "id": "useContext",
       "titulo": "useContext",
-      "subtitulo": "Compartir datos sin pasar props",
-      "descripcion": "El hook useContext te permite leer y suscribirte al valor de un Contexto creado con createContext en React, sin necesidad de pasar props manualmente por cada nivel del árbol de componentes. Por ejemplo: const theme = useContext(ThemeContext); Si no hay un Provider más arriba en el árbol, se devuelve el valor por defecto del Contexto."
+      "subtitulo": "Compartir datos globales sin props",
+      "descripcion": "useContext permite acceder a valores globales definidos en un Context sin necesidad de pasar props manualmente. Es útil para temas, usuarios, idiomas, configuraciones y cualquier dato compartido.",
+      "videoUrl": "https://www.youtube.com/embed/5LrDIWkK_Bc",
+      "exampleCode": "import { createContext, useContext } from 'react';\n\nconst ThemeContext = createContext('light');\n\nexport default function Example() {\n  const theme = useContext(ThemeContext);\n\n  return <div>El tema actual es: {theme}</div>;\n}",
+      "bestPractices": [
+        "Usá context solo para datos realmente globales",
+        "Combiná context con reducers para estados complejos",
+        "Mantené el Provider cerca de donde se usa"
+      ],
+      "commonMistakes": [
+        "Usar context para todo y sobre-renderizar la app",
+        "Colocar el provider demasiado arriba",
+        "Grabar datos muy grandes causando re-renders"
+      ]
     },
     {
+      "id": "useRef",
       "titulo": "useRef",
-      "subtitulo": "Referencias mutables que persisten",
-      "descripcion": "El hook useRef te permite crear una referencia mutable que persiste durante todo el ciclo de vida del componente. Se usa así: const myRef = useRef(initialValue); La propiedad current de la referencia puede ser leída y modificada sin causar un nuevo renderizado. Es útil para acceder a elementos DOM directamente o para almacenar valores mutables que no afectan la UI."
+      "subtitulo": "Referencias mutables que no causan re-render",
+      "descripcion": "useRef te permite mantener valores mutables que persisten entre renderizados sin causar nuevas renderizaciones. Ideal para acceder al DOM, guardar valores previos o manejar timeouts.",
+      "videoUrl": "https://www.youtube.com/embed/t2ypzz6gJm0",
+      "exampleCode": "import { useRef } from 'react';\n\nexport default function InputFocus() {\n  const inputRef = useRef(null);\n\n  const focusInput = () => {\n    inputRef.current?.focus();\n  };\n\n  return (\n    <div>\n      <input ref={inputRef} type='text' />\n      <button onClick={focusInput}>Focalizar</button>\n    </div>\n  );\n}",
+      "bestPractices": [
+        "Usá useRef para valores que no afectan la UI",
+        "Perfecto para guardar valores previos o contadores internos",
+        "Ideal para acceder al DOM de forma controlada"
+      ],
+      "commonMistakes": [
+        "Guardar estado que debería estar en useState",
+        "Forzar cambios en el DOM sin necesidad",
+        "Depender de ref.current como si fuera reactivo"
+      ]
     },
     {
+      "id": "useMemo",
       "titulo": "useMemo",
-      "subtitulo": "Memorizar valores calculados",
-      "descripcion": "El hook useMemo te permite memorizar un valor calculado entre renderizados, evitando cálculos costosos innecesarios. Se usa así: const memoizedValue = useMemo(() => computeExpensiveValue(a, b), [a, b]); React solo volverá a calcular el valor cuando alguna de las dependencias cambie. Esto es útil para optimizar el rendimiento en componentes que realizan cálculos intensivos."
+      "subtitulo": "Evitar cálculos costosos innecesarios",
+      "descripcion": "useMemo memoriza el resultado de una función costosa y lo recalcula solo cuando cambian sus dependencias. Es una herramienta de optimización.",
+      "videoUrl": "https://www.youtube.com/embed/THL1OPn72vo",
+      "exampleCode": "import { useMemo, useState } from 'react';\n\nexport default function ExpensiveSum() {\n  const [count, setCount] = useState(0);\n\n  const result = useMemo(() => {\n    console.log('Calculando...');\n    return count * 2;\n  }, [count]);\n\n  return (\n    <div>\n      <p>Resultado: {result}</p>\n      <button onClick={() => setCount(count + 1)}>Incrementar</button>\n    </div>\n  );\n}",
+      "bestPractices": [
+        "Usarlo para cálculos realmente costosos",
+        "Ideal para listas filtradas o ordenadas",
+        "Buen complemento para componentes memoizados"
+      ],
+      "commonMistakes": [
+        "Usarlo para todo sin necesidad",
+        "Olvidar dependencias",
+        "Peor rendimiento por exceso de memorias"
+      ]
     },
     {
+      "id": "useCallback",
       "titulo": "useCallback",
-      "subtitulo": "Memorizar funciones",
-      "descripcion": "El hook useCallback te permite memorizar una función entre renderizados, evitando que se vuelva a crear en cada renderizado. Se usa así: const memoizedCallback = useCallback(() => { doSomething(a, b); }, [a, b]); React solo volverá a crear la función cuando alguna de las dependencias cambie. Esto es útil para optimizar el rendimiento en componentes que pasan funciones como props a componentes hijos."
+      "subtitulo": "Memorizar funciones entre renderizados",
+      "descripcion": "useCallback memoriza una función para evitar que cambie en cada renderizado. Se usa para optimizar performance cuando pasás funciones como props.",
+      "videoUrl": "https://www.youtube.com/embed/_AyFP5s69N4",
+      "exampleCode": "import { useState, useCallback } from 'react';\n\nexport default function Counter() {\n  const [count, setCount] = useState(0);\n\n  const increment = useCallback(() => {\n    setCount((c) => c + 1);\n  }, []);\n\n  return (\n    <button onClick={increment}>Aumentar: {count}</button>\n  );\n}",
+      "bestPractices": [
+        "Usalo cuando un componente hijo depende de referencia estable",
+        "Combiná useCallback + React.memo para mejores resultados",
+        "Mantené las dependencias bien definidas"
+      ],
+      "commonMistakes": [
+        "Usarlo sin necesidad, ensuciando el código",
+        "Poner dependencias incorrectas",
+        "Pensar que siempre mejora la performance"
+      ]
+    },
+    {
+      "id": "useReducer",
+      "titulo": "useReducer",
+      "subtitulo": "Estados complejos con lógica centralizada",
+      "descripcion": "useReducer te permite manejar estados complejos mediante un reducer: una función pura que recibe estado y acción, y devuelve el nuevo estado. Ideal para lógica avanzada y estructuras grandes.",
+      "videoUrl": "https://www.youtube.com/embed/kK_Wqx3RnHk",
+      "exampleCode": "import { useReducer } from 'react';\n\nfunction reducer(state, action) {\n  switch (action.type) {\n    case 'increment':\n      return { count: state.count + 1 };\n    case 'decrement':\n      return { count: state.count - 1 };\n    default:\n      return state;\n  }\n}\n\nexport default function Counter() {\n  const [state, dispatch] = useReducer(reducer, { count: 0 });\n\n  return (\n    <div>\n      <p>{state.count}</p>\n      <button onClick={() => dispatch({ type: 'increment' })}>+</button>\n      <button onClick={() => dispatch({ type: 'decrement' })}>-</button>\n    </div>\n  );\n}",
+      "bestPractices": [
+        "Ideal para estados complejos o múltiples acciones",
+        "Mantené el reducer puro y predecible",
+        "Combiná con context para un mini–Redux"
+      ],
+      "commonMistakes": [
+        "Poner demasiada lógica dentro del componente",
+        "Mutar el estado en lugar de crear uno nuevo",
+        "Crear reducers gigantes sin modularizar"
+      ]
     }
   ]
 }
