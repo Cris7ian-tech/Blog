@@ -19,6 +19,7 @@ const BlogHooksPage = () => {
       <section className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {articles.map((a) => (
           <CardArticle
+            id={a.id}
             key={a.titulo}
             titulo={a.titulo}
             subtitulo={a.subtitulo}

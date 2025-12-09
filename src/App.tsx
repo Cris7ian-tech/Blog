@@ -11,6 +11,7 @@ import Footer from "./components/layout/Footer.tsx";
 import Header from "./components/layout/Header.tsx";
 import Contacto from "./pages/contacto/Contacto.tsx";
 import BlogHooksPage from "./pages/BlogHooksPage.tsx";
+import HookDetailPage from "./pages/HookDetailPage.tsx";
 import "./index.css";
 import PageTransition from "./components/PageTransition.tsx";
 
@@ -43,6 +44,11 @@ function App() {
                     <BlogHooksPage />
                   </PageTransition>
                 }
+              />
+              <Route 
+              path="/blog/hooks/:id" element={
+              <HookDetailPage />
+              } 
               />
 
               {/* UI Experiments */}
