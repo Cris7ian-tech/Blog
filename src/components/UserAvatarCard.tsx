@@ -1,5 +1,5 @@
 import Avvvatars from "avvvatars-react"
-import { useUserName } from "../hooks/useUserName";
+import { useUserName } from "../shared/hooks/useUserName";
 
 function UserAvatarCard() {
   const [ name, setName ] = useUserName();

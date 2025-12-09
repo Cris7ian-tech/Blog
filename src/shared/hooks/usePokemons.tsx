@@ -19,7 +19,7 @@ interface UsePokemonsReturn {
   error: string | null;
 }
 
-export function usePokemons(limit: number = 220): UsePokemonsReturn {
+export function usePokemons(limit: number = 280): UsePokemonsReturn {
   const [pokemons, setPokemons] = useState<Pokemon[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);

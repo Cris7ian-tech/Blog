@@ -1,7 +1,7 @@
 
 import { useNavigate } from "react-router-dom";
-import { Card, CardHeader, CardBody, CardFooter, CardImage } from "./Card";
-import { typeColors } from "../../utils/pokemonColors";
+import { Card, CardHeader, CardBody, CardFooter, CardImage } from "../../components/ui/Card";
+import { typeColors } from "../../shared/utils/pokemonColors";
 
 interface PokeCardProps {
   id: number;

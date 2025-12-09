@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
-import { typeColors } from "../utils/pokemonColors";
+import { typeColors } from "../shared/utils/pokemonColors";
 
 interface PokemonData {
   id: number;

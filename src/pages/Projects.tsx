@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import ProjectCard from "../components/ProjectCard";
+import ProjectCard from "../components/ProjectCard.tsx";
 
 function Projects() {
   const navigate = useNavigate();

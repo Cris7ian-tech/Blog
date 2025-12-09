@@ -1,6 +1,6 @@
 
 import Avvvatars from "avvvatars-react";
-import  {useUserName}  from "../hooks/useUserName";
+import  {useUserName}  from "../../shared/hooks/useUserName.tsx";
 
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
