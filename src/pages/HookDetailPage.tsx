@@ -20,7 +20,7 @@ const HookDetailPage = () => {
     <main className="min-h-screen p-6 md:p-12 text-gray-100 max-w-4xl mx-auto">
 
       {/* TÍTULO */}
-      <h1 className="text-5xl font-bold mb-4">{hook.titulo}</h1>
+      <h1 className="text-5xl font-bold mb-4 hover:text-cyan-300">{hook.titulo}</h1>
       <h2 className="text-xl text-gray-400 mb-8">{hook.subtitulo}</h2>
 
       {/* DESCRIPCIÓN GENERAL */}
