@@ -1,6 +1,6 @@
 
 import { useNavigate } from "react-router-dom";
-import UserAvatarCard from "../components/UserAvatarCard.tsx";
+// import UserAvatarCard from "../components/UserAvatarCard.tsx";
 import ProjectCard from "../components/ProjectCard.tsx";
 
 const MainLayout = () => {
@@ -10,13 +10,13 @@ const MainLayout = () => {
     {
       title: "Pokedex Explorer",
       description: "Explorá todos los Pokémon: búsqueda, paginación, filtros y detalles.",
-      image: "/src/assets/pokedex.png",
+      image: "/src/assets/Pikachu saludo.gif",
       link: "/pokemons",
     },
     {
       title: "React Hooks Series",
       description: "Artículos profundizando en los Hooks de React.",
-      image: "/src/assets/hooks.png",
+      image: "/src/assets/React logo cubic.jpg",
       link: "/blog/hooks",
     },
     {
@@ -48,7 +48,7 @@ const MainLayout = () => {
             Hola! soy Cristian ✌️
           </h2>
 
-          <UserAvatarCard />
+          {/* <UserAvatarCard /> */}
 
           <p className="text-lg text-gray-100 mb-4 leading-relaxed">
             Soy un <strong>desarrollador web en proceso</strong> y este es mi blog.
