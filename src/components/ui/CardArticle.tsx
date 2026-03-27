@@ -37,7 +37,7 @@ function CardArticle({ id, titulo, subtitulo, descripcion }: CardArticleProps) {
           absolute inset-0
           opacity-0 group-hover:opacity-100
           transition duration-500
-          bg-gradient-to-br from-cyan-500/10 via-transparent to-purple-500/10
+          bg-linear-to-br from-cyan-500/10 via-transparent to-purple-500/10
           z-0 pointer-events-none
         "
         />
