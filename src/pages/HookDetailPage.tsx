@@ -1,12 +1,15 @@
+import { useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import hooksData from "../data/HooksData.json";
 
 const HookDetailPage = () => {
   const { id } = useParams();
 
+  const navigate = useNavigate();
+
   // Obtener el hook correcto desde el JSON
   const hook = hooksData.HooksDataCards.find((h) => h.id === id);
-
+  
   if (!hook) {
     return (
       <main className="p-10 text-center text-gray-200">
@@ -17,6 +20,7 @@ const HookDetailPage = () => {
   }
 
   return (
+
     <main className="min-h-screen p-6 md:p-12 text-gray-100 max-w-4xl mx-auto">
 
       {/* TÍTULO */}
@@ -59,13 +63,32 @@ function Demo() {
         <div className="aspect-video">
           <iframe
             className="w-full h-full rounded-xl border border-neutral-700"
-            src="https://www.youtube.com/embed/dpw9EHDh2bM"
+            src={hook.videoUrl}
             title="React Hook Tutorial"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen
           ></iframe>
         </div>
       </section>
+
+      {/*Boton Vover*/}
+    <button
+      onClick={() => navigate(-1)}
+      className="flex items-center 
+      gap-4 px-4 py-2 
+      rounded-lg 
+      bg-white/5 
+      border 
+      border-white/10 
+      backdrop-blur-sm 
+      text-cyan-400 
+      hover:bg-white/10 
+      hover:border-cyan-400/30 
+      transition-all duration-300 
+      cursor-pointer"
+      >
+      ← Volver
+    </button>
 
     </main>
   );
