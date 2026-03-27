@@ -73,7 +73,7 @@ function Demo() {
 
       {/*Boton Vover*/}
     <button
-      onClick={() => navigate(-1)}
+      onClick={() => navigate("/blog/hooks")}
       className="flex items-center 
       gap-4 px-4 py-2 
       rounded-lg 
