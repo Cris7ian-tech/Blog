@@ -1,5 +1,4 @@
 
-import Avvvatars from "avvvatars-react";
 import  {useUserName}  from "../../shared/hooks/useUserName.tsx";
 
 import { useState } from "react";
@@ -78,7 +77,6 @@ const Header = () => {
             { name && (
                 <div className="flex justify-center mt-6 md:hidden">
                   <div className="bg-white/10 backdrop-blur-lg p-1 rounded-full border border-white/20">
-                    <Avvvatars value={name} size={50} style="shape" />
                   </div>
                 </div>
             )}
