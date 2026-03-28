@@ -11,22 +11,22 @@ const Header = () => {
   return (
 
     <>
-      <header className="px-22 bg-neutral-800 shadow-sm shadow-red-300/20">
+      <header className="sticky top-0 z-50 px-4 sm:px-6 md:px-10 bg-[#020617]/80 backdrop-blur-xl border-b border-white/10">
       
-        <nav className="flex flex-col md:flex-row justify-between py-4">
+        <nav className="flex items-center justify-between py-4 max-w-7xl mx-auto hover:*:text-[#fb7259]">
           
-          <a href="/" className="hidden md:block text-2xl font-bold text-white mb-4 md:mb-0">
+          <NavLink to="/" className="hidden md:block text-3xl font-bold text-white mb-4 md:mb-0">
           MyBlog
-          </a>
+          </NavLink>
 
           {/** MOBILE MENU **/}
           <section className="flex md:hidden">
             {/* HAMBURGUESA LATE*/}
-            <div className="space-y-2"
+            <div className="space-y-2 -ml-1 cursor-pointer group"
             onClick={() => setIsOpen(!isOpen)}>
-              <span className="block h-0.5 w-8 animate-pulse bg-gray-200"></span>
-              <span className="block h-0.5 w-8 animate-pulse bg-gray-200"></span>
-              <span className="block h-0.5 w-8 animate-pulse bg-gray-200"></span>
+              <span className="block h-0.5 w-8 animate-pulse bg-gray-200 group-hover:bg-[#fb7259]"></span>
+              <span className="block h-0.5 w-8 animate-pulse bg-gray-200 group-hover:bg-[#fb7259]"></span>
+              <span className="block h-0.5 w-8 animate-pulse bg-gray-200 group-hover:bg-[#fb7259]"></span>
             </div>
 
             <div className={isOpen ? "showMenuNav" : "hideMenuNav"}>
@@ -75,9 +75,11 @@ const Header = () => {
                   </NavLink>
                 </li>
             { name && (
-                <div className="flex justify-center mt-6 md:hidden">
-                  <div className="bg-white/10 backdrop-blur-lg p-1 rounded-full border border-white/20">
+                <div className="flex flex-col items-center mt-6 md:hidden gap-2">
+                  <div className="w-10 h-10 rounded-full bg-[#fb7259] flex items-center justify-center text-white font-bold">
+                    {name.charAt(0).toUpperCase()}
                   </div>
+                  <span className="text-sm text-slate-300 pl-2">{name}</span>
                 </div>
             )}
               </ul>
@@ -114,13 +116,11 @@ const Header = () => {
         {/* ESTO ES PARA EL AVATAR */}
         { name && (
           <div className="hidden md:flex items-center pr-4">
-            <div className="bg-white/10 backdrop-blur-lg p-1 rounded-full border border-white/20">
-              <Avvvatars 
-              value={name} 
-              size={32} 
-              // style="character" />
-              style="shape" />
+            <div className="w-8 h-8 rounded-full bg-[#fb7259] flex items-center justify-center text-sm font-bold">
+              {name.charAt(0).toUpperCase()}
             </div>
+
+            <span className="text-sm text-slate-300 p-2">{name}</span>
           </div>
 )}
           </ul>
