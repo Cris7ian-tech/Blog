@@ -5,7 +5,13 @@ function Projects() {
   const navigate = useNavigate();
 
   return (
-    <main className="min-h-screen p-10">
+    
+    <main className="relative min-h-screen bg-[#020617] text-white overflow-hidden p-10">
+      <div className="max-w-7xl mx-auto">
+      {/* Fondo radial glow */}
+      <div className="absolute inset-0 -z-10">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(251,114,89,0.15),transparent_60%)]" />
+      </div>
 
       {/* HERO */}
       <section className="text-center mt-20 px-4">
@@ -18,14 +24,25 @@ function Projects() {
           border border-white/20
           shadow-[0_8px_32px_rgba(0,0,0,0.35)]
           relative overflow-hidden
+
+          transition-all duration-500
+          hover:shadow-[0_0_40px_rgba(251,114,89,0.2)]
         ">
-          <div className="absolute inset-0 bg-linear-to-br from-purple-700/30 to-blue-600/30 pointer-events-none"></div>
+          <div className="absolute inset-0 pointer-events-none">
+  
+            {/* Glow coral */}
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(251,114,89,0.35),transparent_70%)]" />
+            
+            {/* Glow secundario */}
+            <div className="absolute bottom-0 right-0 w-[300px] h-[300px] bg-[#fb7259]/10 blur-[100px] rounded-full" />
+
+          </div>
 
           <h1 className="text-6xl font-extrabold text-white drop-shadow-lg relative z-10">
             Mis Proyectos
           </h1>
 
-          <p className="text-gray-200 text-xl mt-4 relative z-10 max-w-2xl mx-auto">
+          <p className="text-slate-300-200 text-xl mt-4 relative z-10 max-w-2xl mx-auto">
             Una colección de demos y experimentos creados mientras aprendo y evoluciono como desarrollador 💻⚡
           </p>
         </div>
@@ -55,6 +72,9 @@ function Projects() {
         />
 
       </section>
+
+      </div>
+
     </main>
   );
 }
